@@ -10,7 +10,6 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -53,7 +52,6 @@ public class Home extends AppCompatActivity implements View.OnTouchListener {
 //    Button buttonConnect;
 
     Handler handler;
-    MediaPlayer mp;
 
     LinearLayout linearLayoutForward;
     LinearLayout linearLayoutBackward;
@@ -105,7 +103,6 @@ public class Home extends AppCompatActivity implements View.OnTouchListener {
 //        buttonConnect = (Button) findViewById(R.id.buttonConnect);
 
         handler = new Handler();
-        mp = MediaPlayer.create(this, R.raw.sound);
 
 
         linearLayoutBackward = (LinearLayout) findViewById(R.id.linearLayoutBackward);
@@ -336,26 +333,15 @@ public class Home extends AppCompatActivity implements View.OnTouchListener {
             if(isIndicatorOn) {
                 isIndicatorOn = false;
 //                textViewIndicator.setTextColor(Color.parseColor("#009d00"));
-                gradientDrawable.setColor(Color.parseColor("#ffd88c00"));
+                gradientDrawable.setColor(Color.parseColor("#ffd3d3d3"));
             } else {
                 isIndicatorOn = true;
 //                textViewIndicator.setTextColor(Color.parseColor("#ffbf00"));
                 gradientDrawable.setColor(Color.parseColor("#ffffe500"));
             }
-            playSound();
             handler.postDelayed(this, 800);
         }
     };
-
-    void playSound() {
-        try {
-            if (mp.isPlaying()) {
-                mp.stop();
-                mp.release();
-                mp = MediaPlayer.create(this, R.raw.sound);
-            } mp.start();
-        } catch(Exception e) { e.printStackTrace(); }
-    }
 
     void sendCommand() {
 
