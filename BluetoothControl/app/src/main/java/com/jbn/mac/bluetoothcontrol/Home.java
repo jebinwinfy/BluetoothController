@@ -199,9 +199,9 @@ public class Home extends AppCompatActivity implements View.OnTouchListener {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
                 if (bChecked) {
-                    sendDataToBluetoothDevice("X");//On
+                    sendDataToBluetoothDevice("U");//On
                 } else {
-                    sendDataToBluetoothDevice("x");//Off
+                    sendDataToBluetoothDevice("u");//Off
                 }
             }
         });
@@ -210,9 +210,9 @@ public class Home extends AppCompatActivity implements View.OnTouchListener {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
                 if (bChecked) {
-                    sendDataToBluetoothDevice("Y");//On
+                    sendDataToBluetoothDevice("X");//On
                 } else {
-                    sendDataToBluetoothDevice("y");//Off
+                    sendDataToBluetoothDevice("x");//Off
                 }
             }
         });
@@ -439,7 +439,7 @@ public class Home extends AppCompatActivity implements View.OnTouchListener {
                     sendCommand();
                 }
             }
-        }, 10); //(takes millis)
+        }, 30); //(takes millis)
     }
 
     @Override
@@ -531,10 +531,10 @@ public class Home extends AppCompatActivity implements View.OnTouchListener {
                 return true;
             case R.id.linearLayoutHorn:
                 if(event.getAction() == MotionEvent.ACTION_UP){
-                    sendDataToBluetoothDevice("D");
+                    sendDataToBluetoothDevice("v");
                 } else if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    sendDataToBluetoothDevice("d");
-                    Toast.makeText(getBaseContext(), "Horn turned on", Toast.LENGTH_SHORT).show();
+                    sendDataToBluetoothDevice("V");
+//                    Toast.makeText(getBaseContext(), "Horn turned on", Toast.LENGTH_SHORT).show();
                 }
                 return true;
             case R.id.linearLayoutConnect:
